@@ -1,0 +1,27 @@
+	<h3>Products</h3>
+	<% if @products	 %>
+	<table border="1">
+	  <tr>
+	  	<td>Name</td>
+	    <td>SKU_ID</td>
+	    <td>price</td>
+	    <td>Image</td>
+	  </tr>
+		<% @products.each do |product| %>
+			<tr>
+			<td><%= link_to product.name, host_admin_product_path(product.id) %></td>
+			<td><%= product.sku_id %></td>
+			<td><%= product.price %></td>
+			<td>
+				<% if !product.images.blank? %>
+					<a href="<%= product.images.first.url %>" target="_blank"><img height="50" width="50" src="<%= product.images.first.url %>"></a>
+				<% else %>
+					No images
+				<% end %>
+			</td> 
+			</tr>
+		<% end %>
+	</table>
+	<% else %>
+		There are no products.
+	<% end %>

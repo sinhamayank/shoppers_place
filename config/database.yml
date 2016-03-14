@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: shoppers_place
+  username: postgres
+  # The password associated with the postgres role (username).
+  password: india
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: shoppers_place_test
+
+production:
+  <<: *default
+  database: shoppers_place
+  username: shoppers_place_user
+  password: <%= ENV['SP_DATABASE_PASSWORD'] %>

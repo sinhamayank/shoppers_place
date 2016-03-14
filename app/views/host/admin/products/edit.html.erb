@@ -1,0 +1,13 @@
+<%= form_tag( host_admin_product_path, :method =>"PUT" ) do %>
+	<%= label_tag(:name, "Name") %>:	
+	<%= text_field_tag(:name, @product.name) %><br/><br/>
+	<%= label_tag(:expire_date, "Expire date") %>:
+	<%= text_field_tag(:expire_date, @product.expire_date) %><br/><br/>	
+	<%= label_tag(:price, "Price") %>:
+	<%= text_field_tag(:price, @product.price) %><br/><br/>
+	<%= label_tag(:tags, "Tags (comma separated)") %>:
+	<%= text_field_tag(:tags, @tags) %><br/><br/>
+	<%= label_tag(:categories, "Categories(comma separated)") %>:
+	<%= text_field_tag(:categories, @categories) %><br/><br/>				
+	<%= submit_tag "submit" %>
+<% end %>
